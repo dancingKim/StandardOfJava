@@ -49,12 +49,18 @@ class Cook23 implements Runnable {
 
     @Override
     public void run() {
+        while(true) {
+
+            int idx = (int) (Math.random() * table.dishNum());
+            table.add(table.dishNames[idx]);
+            try {Thread.sleep(1);} catch (InterruptedException e){}
+        }
 
     }
 }
 
 class Table23 {
-    String[] dishNames = {"donut", "donumt", "burger"};
+    String[] dishNames = {"donut", "donut", "burger"};
     final int MAX_FOOD = 6;
 
     private ArrayList<String> dishes = new ArrayList<>();
